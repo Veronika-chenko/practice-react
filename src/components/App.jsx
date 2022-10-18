@@ -1,7 +1,9 @@
+import { Counter } from "./Counter/Counter";
+
 export const App = () => {
   return (
     <div>
-      React homework template
+      <Counter />
     </div>
   );
 };
