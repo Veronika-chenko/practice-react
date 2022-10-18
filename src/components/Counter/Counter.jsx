@@ -20,9 +20,10 @@ export class Counter extends Component {
     }
 
     render() {
+        const { value } = this.state;
         return (
             <CounterWrap>
-                <CounterValue>{this.state.value}</CounterValue>
+                <CounterValue>{value}</CounterValue>
                 <Controls onIncrement={this.handleIncrement} onDecrement={this.handleDecrement} />
             </CounterWrap>
         )

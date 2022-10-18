@@ -4,6 +4,7 @@ export const CounterWrap = styled.div`
     display: grid;
     grid-row-gap: 8px;
     max-width: 300px;
+    margin-bottom: 20px;
     padding: 10px 8px;
     border: 1px solid #000;
 `
