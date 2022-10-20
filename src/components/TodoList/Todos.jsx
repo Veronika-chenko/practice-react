@@ -1,16 +1,35 @@
 import { Component } from 'react';
 import shortid from 'shortid';
-import initialTodos from '../../todos.json';
+// import initialTodos from '../../todos.json';
 
 import { TodoEditor } from 'components/TodoList/TodoEditor';
 import { TodoList } from '.';
 import { Filter } from 'components/TodoList/TodoFilter';
 
+const Todos = 'todos';
+
 export class Todo extends Component {
   state = {
-    todos: initialTodos,
+    // todos: initialTodos,
+    todos: [],
     filter: '',
   };
+
+  componentDidMount() {
+    const todos = localStorage.getItem(Todos);
+    const parsedTodos = JSON.parse(todos);
+    // console.log(parsedTodos);
+    if (parsedTodos) {
+      this.setState({ todos: parsedTodos });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    // check isUpdate
+    if (this.state.todos !== prevState) {
+      localStorage.setItem(Todos, JSON.stringify(this.state.todos));
+    }
+  }
 
   addTodo = text => {
     // console.log(text);
@@ -106,3 +125,9 @@ export class Todo extends Component {
 // використовуй деструктуризація при розпиленні
 
 // для filter храним state в родителе
+
+// componentDidUpdate не делать publ свойством
+// JSON parse/stringify
+
+// перевіряти, що повертаєбся, коли assign or call something
+// Uncaught TypeError: Cannot read properties of null (reading 'length')

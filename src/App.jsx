@@ -1,7 +1,8 @@
-// import { Counter } from "./Counter";
-// import { Dropdown } from "./Dropdown";
-// import { ColorPicker } from "./ColorPicker";
-import { Todo } from 'components/TodoList/Todos';
+import { Counter } from './components/Counter';
+// import { Dropdown } from './components/Dropdown';
+// import { ColorPicker } from './components/ColorPicker';
+// import { Todo } from 'components/TodoList/Todos';
+// import { Container } from 'components/Modal/Container';
 
 // const colorPickerOptions = [
 //   { label: 'red', color: '#F44336' },
@@ -15,10 +16,11 @@ import { Todo } from 'components/TodoList/Todos';
 export const App = () => {
   return (
     <>
-      {/* <Counter />
-        <ColorPicker options={colorPickerOptions} />
-        <Dropdown /> */}
-      <Todo />
+      <Counter />
+      {/* <ColorPicker options={colorPickerOptions} /> */}
+      {/* <Dropdown /> */}
+      {/* <Todo /> */}
+      {/* <Container /> */}
     </>
   );
 };

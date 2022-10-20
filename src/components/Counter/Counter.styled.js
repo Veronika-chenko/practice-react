@@ -7,6 +7,7 @@ export const CounterWrap = styled.div`
     margin-bottom: 20px;
     padding: 10px 8px;
     border: 1px solid #000;
+    border-radius: 4px;
 `
 
 export const CounterValue = styled.span`
