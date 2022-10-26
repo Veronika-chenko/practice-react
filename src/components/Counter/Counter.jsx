@@ -1,19 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Controls } from './Controls';
 import { CounterWrap, CounterValue } from './Counter.styled';
 
 export function Counter() {
   const [value, setValue] = useState(0);
+  const [total, setTotal] = useState(0);
 
   const handleIncrement = () => {
-    setValue(prevState => prevState + 1);
+    setValue(state => state + 1);
   };
 
   const handleDecrement = () => {
-    setValue(prevState => prevState - 1);
+    setValue(state => state - 1);
   };
+
+  useEffect(() => {
+    if (value === 0) {
+      return;
+    }
+    setTotal(state => state + 1);
+  }, [value]);
   return (
     <CounterWrap>
+      <p>total click: {total}</p>
       <CounterValue>{value}</CounterValue>
       <Controls onIncrement={handleIncrement} onDecrement={handleDecrement} />
     </CounterWrap>
