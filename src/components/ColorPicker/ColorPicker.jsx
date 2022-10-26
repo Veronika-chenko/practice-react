@@ -25,6 +25,7 @@ export function ColorPicker({ options }) {
   );
 }
 
+//
 //анонимка для обновления части стейта
 //onClick={() => setActiveOptionIdx(index)}
 //

@@ -1,34 +1,55 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import { Controls } from './Controls';
 import { CounterWrap, CounterValue } from './Counter.styled';
 
-export class Counter extends Component {
-    static defaultProps = {
-        initualValue: 0,
-    }
+export function Counter() {
+  const [value, setValue] = useState(0);
 
-    state = {
-        value: this.props.initualValue,
-    }
+  const handleIncrement = () => {
+    setValue(prevState => prevState + 1);
+  };
 
-    handleIncrement = () => {
-        this.setState((prevState) => ({value: prevState.value + 1}))
-    }
-
-    handleDecrement = () => {
-        this.setState((prevState) => ({value: prevState.value - 1}))
-    }
-
-    render() {
-        const { value } = this.state;
-        return (
-            <CounterWrap>
-                <CounterValue>{value}</CounterValue>
-                <Controls onIncrement={this.handleIncrement} onDecrement={this.handleDecrement} />
-            </CounterWrap>
-        )
-    }
+  const handleDecrement = () => {
+    setValue(prevState => prevState - 1);
+  };
+  return (
+    <CounterWrap>
+      <CounterValue>{value}</CounterValue>
+      <Controls onIncrement={handleIncrement} onDecrement={handleDecrement} />
+    </CounterWrap>
+  );
 }
+
+// class OldCounter extends Component {
+//   static defaultProps = {
+//     initualValue: 0,
+//   };
+
+//   state = {
+//     value: this.props.initualValue,
+//   };
+
+//   handleIncrement = () => {
+//     this.setState(prevState => ({ value: prevState.value + 1 }));
+//   };
+
+//   handleDecrement = () => {
+//     this.setState(prevState => ({ value: prevState.value - 1 }));
+//   };
+
+//   render() {
+//     const { value } = this.state;
+//     return (
+//       <CounterWrap>
+//         <CounterValue>{value}</CounterValue>
+//         <Controls
+//           onIncrement={this.handleIncrement}
+//           onDecrement={this.handleDecrement}
+//         />
+//       </CounterWrap>
+//     );
+//   }
+// }
 
 // onClick={callback}
 // у метода класса нужно привязать контекст(синтаксис =>)
