@@ -1,17 +1,17 @@
 import { Component } from 'react';
 import shortid from 'shortid';
-// import initialTodos from '../../todos.json';
+import initialTodos from '../../todos.json';
 
 import { TodoEditor } from 'components/TodoList/TodoEditor';
-import { TodoList } from '.';
+import { TodoList } from 'components/TodoList/TodoList';
 import { Filter } from 'components/TodoList/TodoFilter';
 
 const Todos = 'todos';
 
 export class Todo extends Component {
   state = {
-    // todos: initialTodos,
-    todos: [],
+    todos: initialTodos,
+    // todos: [],
     filter: '',
   };
 
