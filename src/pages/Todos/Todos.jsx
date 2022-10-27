@@ -1,14 +1,14 @@
 import { Component } from 'react';
 import shortid from 'shortid';
 import initialTodos from '../../todos.json';
+import { TodoWrap, TodoInfo } from './Todos.styled';
+import { TodoEditor } from 'pages/Todos/TodoEditor/TodoEditor';
+import { TodoList } from 'pages/Todos/TodoList/TodoList';
+import { Filter } from 'pages/Todos/TodoFilter/TodoFilter';
 
-import { TodoEditor } from 'pages/TodoList/TodoEditor';
-import { TodoList } from 'pages/TodoList/TodoList';
-import { Filter } from 'pages/TodoList/TodoFilter';
+const TODOS = 'todos';
 
-const Todos = 'todos';
-
-export class Todo extends Component {
+export class Todos extends Component {
   state = {
     todos: initialTodos,
     // todos: [],
@@ -16,7 +16,7 @@ export class Todo extends Component {
   };
 
   componentDidMount() {
-    const todos = localStorage.getItem(Todos);
+    const todos = localStorage.getItem(TODOS);
     const parsedTodos = JSON.parse(todos);
     // console.log(parsedTodos);
     if (parsedTodos) {
@@ -27,7 +27,7 @@ export class Todo extends Component {
   componentDidUpdate(_, prevState) {
     // check isUpdate
     if (this.state.todos !== prevState) {
-      localStorage.setItem(Todos, JSON.stringify(this.state.todos));
+      localStorage.setItem(TODOS, JSON.stringify(this.state.todos));
     }
   }
 
@@ -52,18 +52,6 @@ export class Todo extends Component {
   };
 
   toggleCompleted = todoId => {
-    // this.setState(prevState => ({
-    //   todos: prevState.todos.map(todo => {
-    //     if (todo.id === todoId) {
-    //       return {
-    //         ...todo,
-    //         completed: !todo.completed,
-    //       };
-    //     }
-    //     return todo;
-    //   }),
-    // }));
-
     this.setState(({ todos }) => ({
       todos: todos.map(todo =>
         todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
@@ -95,11 +83,11 @@ export class Todo extends Component {
     const filteredTodo = this.getFilteredTodos();
 
     return (
-      <>
-        <div>
+      <TodoWrap>
+        <TodoInfo>
           <p>Total: {totalTodosCount}</p>
           <p>Completed: {completedTodosCount}</p>
-        </div>
+        </TodoInfo>
 
         <TodoEditor onSubmit={this.addTodo} />
         <Filter value={filter} changeFilter={this.changeFilter} />
@@ -108,7 +96,7 @@ export class Todo extends Component {
           onDeleteTodo={this.deleteTodo}
           ontoggleCompleted={this.toggleCompleted}
         />
-      </>
+      </TodoWrap>
     );
   }
 }
@@ -131,3 +119,18 @@ export class Todo extends Component {
 
 // перевіряти, що повертаєбся, коли assign or call something
 // Uncaught TypeError: Cannot read properties of null (reading 'length')
+
+// #1 for better understanding:
+// toggleCompleted = todoId => {
+//   this.setState(prevState => ({
+//     todos: prevState.todos.map(todo => {
+//       if (todo.id === todoId) {
+//         return {
+//           ...todo,
+//           completed: !todo.completed,
+//         };
+//       }
+//       return todo;
+//     }),
+//   }));
+// }

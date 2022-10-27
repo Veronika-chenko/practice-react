@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Controls } from './Controls';
-import { CounterWrap, CounterValue } from './Counter.styled';
+import { CounterWrap, CounterValue, Text } from './Counter.styled';
+// import { Button } from '../../components/Button';
 
 export function Counter() {
   const [value, setValue] = useState(0);
@@ -17,15 +18,22 @@ export function Counter() {
   useEffect(() => {
     if (value === 0) {
       return;
-    }
+    } // not a solution, cause 0 repeats
     setTotal(state => state + 1);
   }, [value]);
   return (
-    <CounterWrap>
-      <p>total click: {total}</p>
-      <CounterValue>{value}</CounterValue>
-      <Controls onIncrement={handleIncrement} onDecrement={handleDecrement} />
-    </CounterWrap>
+    <>
+      <CounterWrap>
+        <Text>total click: {total}</Text>
+        <CounterValue>{value}</CounterValue>
+        <Controls onIncrement={handleIncrement} onDecrement={handleDecrement} />
+      </CounterWrap>
+
+      {/* <Button>Search</Button>
+      <Button type="submit" disabled>
+        Login
+      </Button> */}
+    </>
   );
 }
 

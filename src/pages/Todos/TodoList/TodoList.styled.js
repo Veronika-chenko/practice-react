@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const TodoInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+`
+
 export const TodoItemsWrap = styled.ul`
     display: flex;
     flex-direction: column;
@@ -19,8 +25,4 @@ export const TodoInput = styled.input`
     display: inline-block;
     width: 16px;
     height: 16px;
-`
-export const TodoForm = styled.form`
-    display: flex;
-    align-items: center;
 `

@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import { Nav, StyledLink } from './App.styled';
+import colorPickerOptions from 'colorpicker.json';
 // #pages
 import { Counter } from '../pages/Counter';
 import { Dropdown } from '../pages/Dropdown';
 import { ColorPicker } from '../pages/ColorPicker';
-import { Todo } from '../pages/TodoList/Todos'; //for Not Found
+import { Todos } from '../pages/Todos'; //also using for 'Not Found'
 import { Container } from '../pages/Modal/Container';
-import colorPickerOptions from 'colorpicker.json';
 import { CommentForm } from '../pages/CommentForm';
 
 export const App = () => {
@@ -16,11 +16,11 @@ export const App = () => {
         <StyledLink to="/" end>
           Counter
         </StyledLink>
-        <StyledLink to="/container">Container</StyledLink>
+        <StyledLink to="/container">Modal</StyledLink>
         <StyledLink to="/commentform">CommentForm</StyledLink>
         <StyledLink to="/dropdown">Dropdown</StyledLink>
         <StyledLink to="colorpicker">ColorPicker</StyledLink>
-        <StyledLink to="todo">Todo</StyledLink>
+        <StyledLink to="todo">Todos</StyledLink>
       </Nav>
       <Routes>
         <Route path="/" element={<Counter />} />
@@ -31,9 +31,12 @@ export const App = () => {
           path="colorpicker"
           element={<ColorPicker options={colorPickerOptions} />}
         />
-        <Route path="todo" element={<Todo />} />
-        <Route path="*" element={<Todo />} />
+        <Route path="todo" element={<Todos />} />
+        <Route path="*" element={<Todos />} />
       </Routes>
     </div>
   );
 };
+
+// if Todos is used as <Route path="*" element={<Todo />} />
+// can't rename Todo main folder. Maybe not for this reason

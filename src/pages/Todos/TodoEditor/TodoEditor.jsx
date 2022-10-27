@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { TodoForm } from './TodoList.styled';
+import { TodoForm, TodoTextbox, TodoFormButton } from './TodoEditor.styled';
 
 export class TodoEditor extends Component {
   state = {
@@ -11,9 +11,13 @@ export class TodoEditor extends Component {
   };
 
   handleSubmit = e => {
+    const { message } = this.state;
     e.preventDefault();
-    console.log(this.state.message);
-    this.props.onSubmit(this.state.message);
+    // console.log(this.state.message);
+    if (message.trim() === '') {
+      return;
+    }
+    this.props.onSubmit(message);
     this.setState({ message: '' });
   };
 
@@ -21,8 +25,8 @@ export class TodoEditor extends Component {
     const { message } = this.state;
     return (
       <TodoForm onSubmit={this.handleSubmit}>
-        <textarea value={message} onChange={this.handleChange}></textarea>
-        <button type="submit">Add</button>
+        <TodoTextbox value={message} onChange={this.handleChange}></TodoTextbox>
+        <TodoFormButton type="submit">Add</TodoFormButton>
       </TodoForm>
     );
   }
