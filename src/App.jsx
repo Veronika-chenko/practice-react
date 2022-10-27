@@ -4,14 +4,13 @@
 // import { Todo } from 'components/TodoList/Todos';
 // import { Container } from 'components/Modal/Container';
 // import colorPickerOptions from 'colorpicker.json';
-import { SignupForm } from 'components/SignupForm';
-
+import { CommentForm } from './components/CommentForm';
 export const App = () => {
   return (
     <>
       {/* <Counter /> */}
       {/* <ColorPicker options={colorPickerOptions} /> */}
-      <SignupForm />
+      <CommentForm />
       {/* <Dropdown /> */}
       {/* <Todo /> */}
       {/* <Container /> */}

@@ -1,7 +1,7 @@
 import { useLocalStorage } from 'hooks/localStorage';
-import { Form, FormLabel, FormTextarea } from './SignupForm.styled';
+import { Form, FormLabel, FormTextarea } from './CommentForm.styled';
 
-export function SignupForm() {
+export function CommentForm() {
   //lazy state initialization
   const [name, setName] = useLocalStorage('name', '');
   const [comment, setComment] = useLocalStorage('comment', '');
