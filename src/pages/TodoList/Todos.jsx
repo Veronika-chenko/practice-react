@@ -2,9 +2,9 @@ import { Component } from 'react';
 import shortid from 'shortid';
 import initialTodos from '../../todos.json';
 
-import { TodoEditor } from 'components/TodoList/TodoEditor';
-import { TodoList } from 'components/TodoList/TodoList';
-import { Filter } from 'components/TodoList/TodoFilter';
+import { TodoEditor } from 'pages/TodoList/TodoEditor';
+import { TodoList } from 'pages/TodoList/TodoList';
+import { Filter } from 'pages/TodoList/TodoFilter';
 
 const Todos = 'todos';
 
