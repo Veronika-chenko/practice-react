@@ -5,15 +5,16 @@ import colorPickerOptions from 'colorpicker.json';
 import { Counter } from '../pages/Counter';
 import { Dropdown } from '../pages/Dropdown';
 import { ColorPicker } from '../pages/ColorPicker';
-import { Todos } from '../pages/Todos'; //also using for 'Not Found'
+import { Todos } from '../pages/Todos';
 import { Container } from '../pages/Modal/Container';
 import { CommentForm } from '../pages/CommentForm';
+import { NotFound } from 'pages/NotFound';
 
 export const App = () => {
   return (
     <div>
       <Nav>
-        <StyledLink to="/" end>
+        <StyledLink to="/practice-react" end>
           Counter
         </StyledLink>
         <StyledLink to="/container">Modal</StyledLink>
@@ -23,7 +24,7 @@ export const App = () => {
         <StyledLink to="todo">Todos</StyledLink>
       </Nav>
       <Routes>
-        <Route path="/" element={<Counter />} />
+        <Route path="/practice-react" element={<Counter />} />
         <Route path="/container" element={<Container />} />
         <Route path="/commentform" element={<CommentForm />} />
         <Route path="/dropdown" element={<Dropdown />} />
@@ -32,7 +33,7 @@ export const App = () => {
           element={<ColorPicker options={colorPickerOptions} />}
         />
         <Route path="todo" element={<Todos />} />
-        <Route path="*" element={<Todos />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
