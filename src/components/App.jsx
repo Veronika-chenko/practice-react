@@ -16,6 +16,7 @@ import { Mission } from './fortest/Mission';
 import { Team } from './fortest/Team';
 import { Reviews } from './fortest/Reviews';
 import { ProductDetails } from 'pages/ProductDetails';
+import { MusicCard } from 'pages/MusicCard';
 
 export const App = () => {
   return (
@@ -29,9 +30,11 @@ export const App = () => {
         <StyledLink to="/dropdown">Dropdown</StyledLink>
         <StyledLink to="/colorpicker">ColorPicker</StyledLink>
         <StyledLink to="/todo">Todos</StyledLink>
+        <StyledLink to="/music-card">Todos</StyledLink>
         {/*  */}
         <StyledLink to="/about">About</StyledLink>
         <StyledLink to="/products">Products</StyledLink>
+        <StyledLink to="/music-card">MusicCard</StyledLink>
       </Nav>
       <Routes>
         <Route path="/practice-react" element={<Counter />} />
@@ -43,6 +46,7 @@ export const App = () => {
           element={<ColorPicker options={colorPickerOptions} />}
         />
         <Route path="/todo" element={<Todos />} />
+        <Route path="/music-card" element={<MusicCard />} />
         {/* --------------- */}
         <Route path="/about" element={<About />}>
           <Route path="mission" element={<Mission />} />
