@@ -33,6 +33,7 @@ export const App = () => {
         <StyledLink to="/music-card">Todos</StyledLink>
         {/*  */}
         <StyledLink to="/about">About</StyledLink>
+        <StyledLink to="/products">Products</StyledLink>
         <StyledLink to="/music-card">MusicCard</StyledLink>
       </Nav>
       <Routes>
