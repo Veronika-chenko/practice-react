@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/practice-react/static/css/main.a19944c4.css",
-    "main.js": "/practice-react/static/js/main.051ff5cf.js",
+    "main.js": "/practice-react/static/js/main.647ba38d.js",
     "static/media/music-card-img.jpg": "/practice-react/static/media/music-card-img.923719a79d67df071f27.jpg",
     "index.html": "/practice-react/index.html",
     "main.a19944c4.css.map": "/practice-react/static/css/main.a19944c4.css.map",
-    "main.051ff5cf.js.map": "/practice-react/static/js/main.051ff5cf.js.map"
+    "main.647ba38d.js.map": "/practice-react/static/js/main.647ba38d.js.map"
   },
   "entrypoints": [
     "static/css/main.a19944c4.css",
-    "static/js/main.051ff5cf.js"
+    "static/js/main.647ba38d.js"
   ]
 }
