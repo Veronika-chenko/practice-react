@@ -30,7 +30,6 @@ export const App = () => {
         <StyledLink to="/dropdown">Dropdown</StyledLink>
         <StyledLink to="/colorpicker">ColorPicker</StyledLink>
         <StyledLink to="/todo">Todos</StyledLink>
-        <StyledLink to="/music-card">Todos</StyledLink>
         {/*  */}
         <StyledLink to="/about">About</StyledLink>
         <StyledLink to="/products">Products</StyledLink>
